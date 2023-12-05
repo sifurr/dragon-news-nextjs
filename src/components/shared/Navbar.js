@@ -12,6 +12,7 @@ import Link from "next/link";
 
 //icons
 import { Facebook, Twitter, YouTube } from "@mui/icons-material";
+import Header from "./Header";
 
 const navItems = [
   {
@@ -42,40 +43,43 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <AppBar position="static" className="bg-gray-900">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Image src={logo} height={100} width={100} alt="logo" />
-          <Box className="w-full text-center">
-            {navItems.map((item) => (
-              <Link key={item} href={item.pathname}>
-                <Button className="text-white">{item.route}</Button>
-              </Link>
-            ))}
-          </Box>
-          <Box>
-            <Stack
-              direction="row"
-              sx={{
-                "& svg": {
-                  color: "white",
-                },
-              }}
-            >
-              <IconButton>
-                <Facebook />
-              </IconButton>
-              <IconButton>
-                <Twitter />
-              </IconButton>
-              <IconButton>
-                <YouTube />
-              </IconButton>
-            </Stack>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <>
+      <Header />
+      <AppBar position="static" className="bg-gray-900">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Image src={logo} height={100} width={100} alt="logo" />
+            <Box className="w-full text-center">
+              {navItems.map((item) => (
+                <Link key={item} href={item.pathname}>
+                  <Button className="text-white">{item.route}</Button>
+                </Link>
+              ))}
+            </Box>
+            <Box>
+              <Stack
+                direction="row"
+                sx={{
+                  "& svg": {
+                    color: "white",
+                  },
+                }}
+              >
+                <IconButton>
+                  <Facebook />
+                </IconButton>
+                <IconButton>
+                  <Twitter />
+                </IconButton>
+                <IconButton>
+                  <YouTube />
+                </IconButton>
+              </Stack>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 };
 export default Navbar;
